@@ -11,9 +11,11 @@ gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'rack-cors'
+gem 'nokogiri', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do
