@@ -3,19 +3,22 @@
 module Api
   module V1
     class BooksController < ApplicationController
-      before_action :set_author, only: [:show, :update, :destroy]
-      before_action :set_book, only: [:show, :update, :destroy]
+      before_action :set_author, only: %i[show update destroy]
+      before_action :set_book, only: %i[show update destroy]
 
       def index
+        authorize! :read
         @books = @author.books.all
         render json: @books
       end
 
       def show
+        authorize! :read
         render json: @book
       end
 
       def create
+        authorize! :create
         @book = @author.books.new(book_params)
 
         if @book.save
@@ -26,6 +29,7 @@ module Api
       end
 
       def update
+        authorize! :update
         if @book.update(book_params)
           render json: @book
         else
@@ -34,6 +38,7 @@ module Api
       end
 
       def destroy
+        authorize! :destroy
         @book.destroy
       end
 

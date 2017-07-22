@@ -3,21 +3,24 @@
 module Api
   module V1
     class AuthorsController < ApplicationController
-      before_action :set_author, only: [:show, :update, :destroy]
+      before_action :set_author, only: %i[show update destroy]
 
       # GET /authors
       def index
+        authorize! :read
         @authors = Author.all
         render json: @authors
       end
 
       # GET /authors/1
       def show
+        authorize! :read
         render json: @author
       end
 
       # POST /authors
       def create
+        authorize! :create
         @author = Author.new(author_params)
 
         if @author.save
@@ -29,6 +32,7 @@ module Api
 
       # PATCH/PUT /authors/1
       def update
+        authorize! :update
         if @author.update(author_params)
           render json: @author
         else
@@ -38,6 +42,7 @@ module Api
 
       # DELETE /authors/1
       def destroy
+        authorize! :destroy
         @author.destroy
       end
 
