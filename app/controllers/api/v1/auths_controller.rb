@@ -3,6 +3,8 @@
 module Api
   module V1
     class AuthsController < ApplicationController
+      skip_before_action :authenticate_user
+
       def create
         token_command = AuthenticateUserCommand.call(*params.slice(:user, :password).values)
 
