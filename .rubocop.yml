@@ -1,0 +1,25 @@
+AllCops:
+  TargetRubyVersion: 2.3
+
+LineLength:
+  Max: 125
+
+StringLiterals:
+  EnforcedStyle: single_quotes
+
+ClassLength:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Lint/Debugger:
+  Exclude:
+    - lib/services/uibot/helpers/debug_helper.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
