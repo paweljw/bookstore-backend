@@ -1,0 +1,3 @@
+en:
+  authenticate_user_command:
+    invalid_credentials: User credentials invalid!
