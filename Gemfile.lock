@@ -142,6 +142,8 @@ GEM
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
     ruby_dep (1.5.0)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     slop (3.6.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
@@ -178,6 +180,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.1.2)
   rspec-rails
+  shoulda-matchers
   timecop
   tzinfo-data
 

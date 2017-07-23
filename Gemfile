@@ -23,6 +23,7 @@ group :development, :test do
   gem 'faker'
   gem 'timecop'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
 
 group :development do
