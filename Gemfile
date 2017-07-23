@@ -17,13 +17,13 @@ gem 'jwt'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pry-rails'
-  gem 'rspec-rails'
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'timecop'
-  gem 'database_cleaner'
+  gem 'pry-rails'
+  gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'timecop'
 end
 
 group :development do
