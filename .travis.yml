@@ -1,0 +1,9 @@
+language: ruby
+services:
+  - postgresql
+env:
+  - "RAILS_ENV=test"
+before_script:
+  - RAILS_ENV=test rake db:create db:migrate
+addons:
+  postgresql: "9.6"
