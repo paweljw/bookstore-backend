@@ -86,18 +86,34 @@ RSpec.describe 'authors API', type: :request do
     end
 
     describe 'PUT /api/v1/authors/:id' do
-      let(:name) { Faker::Name.name }
-      let(:valid_attributes) { { author: { name: name } } }
-
       context 'when the record exists' do
-        before { put "/api/v1/authors/#{author_id}", params: valid_attributes }
+        context 'with valid data' do
+          let(:name) { Faker::Name.name }
+          let(:valid_attributes) { { author: { name: name } } }
 
-        it 'updates the record' do
-          expect(response.body).to match(/#{name}/)
+          before { put "/api/v1/authors/#{author_id}", params: valid_attributes }
+
+          it 'updates the record' do
+            expect(response.body).to match(/#{name}/)
+          end
+
+          it 'returns status code 204' do
+            expect(response).to have_http_status(200)
+          end
         end
 
-        it 'returns status code 204' do
-          expect(response).to have_http_status(200)
+        context 'with invalid data' do
+          let(:invalid_attributes) { { author: { name: '' } } }
+
+          before { put "/api/v1/authors/#{author_id}", params: invalid_attributes }
+
+          it 'updates the record' do
+            expect(response.body).to match(/can't be blank/)
+          end
+
+          it 'returns status code 204' do
+            expect(response).to have_http_status(422)
+          end
         end
       end
     end

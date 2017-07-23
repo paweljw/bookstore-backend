@@ -23,6 +23,7 @@ class BaseCommand
 
   private
 
+  # :nocov:
   def initialize(*_)
     not_implemented
   end
@@ -30,4 +31,5 @@ class BaseCommand
   def payload
     not_implemented
   end
+  # :nocov:
 end

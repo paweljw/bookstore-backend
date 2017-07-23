@@ -14,3 +14,5 @@
 !/tmp/.keep
 
 .byebug_history
+
+/coverage
