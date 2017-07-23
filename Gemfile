@@ -16,12 +16,18 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'jwt'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pry-rails'
-  gem 'rspec-rails'
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'timecop'
+end
+
+group :test do
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'simplecov'
 end
 
 group :development do
