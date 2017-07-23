@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+class NotPermittedException < StandardError; end
+
 module AdminAuthorizable
   extend ActiveSupport::Concern
 
@@ -9,7 +11,7 @@ module AdminAuthorizable
 
   # :reek:ControlParameter
   def authorize!(action)
-    raise NotPermittedException unless action != :read && !current_user.admin?
+    raise NotPermittedException if action != :read && !current_user.admin?
     true
   end
 end
