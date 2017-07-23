@@ -7,3 +7,7 @@ before_script:
   - RAILS_ENV=test rake db:create db:migrate
 addons:
   postgresql: "9.6"
+  code_climate:
+    repo_token: 8c21fe8e5f29c529b6e9f6cf1b4c3008983b5662b3741afd2e66ed2d3c05334e
+after_success:
+  - bundle exec codeclimate-test-reporter

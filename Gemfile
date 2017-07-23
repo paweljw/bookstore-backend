@@ -26,6 +26,11 @@ group :development, :test do
   gem 'timecop'
 end
 
+group :test do
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
+end
+
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
