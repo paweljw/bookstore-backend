@@ -10,8 +10,8 @@ describe AuthenticateUserCommand do
     after { Timecop.return }
 
     let(:expected_token) do
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcmF0aW9uIjoxNDgzMzE1MjAxfQ.' \
-      'bMict_biZTOT545LKhD_RqnpY9GPmHiagtrR9sFSBPo'
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0ODMzMTUyMDF9.' \
+      '4Ix2FfiY0_Jsjk13mHntg62aVX9BmMgFEembjN2E-Zw'
     end
 
     subject { described_class.call(user.email, 'password123') }

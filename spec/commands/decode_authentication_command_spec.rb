@@ -6,15 +6,15 @@ describe DecodeAuthenticationCommand do
 
     it { expect(subject.success?).to_not be }
     it { expect(subject.errors.keys).to include(:token) }
-    it { expect(subject.errors.values.flatten).to include('Missing token') }
+    it { expect(subject.errors.values.flatten).to include('Token is missing') }
   end
 
   context 'with expired token' do
     let!(:user) { create(:user, id: 1) }
     let(:expired_header) do
       {
-        'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcmF0aW9uIjoxNDgzMzE1MjAxfQ' \
-                           '.bMict_biZTOT545LKhD_RqnpY9GPmHiagtrR9sFSBPo'
+        'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0ODMzMTUyMDF9.' \
+                           '4Ix2FfiY0_Jsjk13mHntg62aVX9BmMgFEembjN2E-Zw'
       }
     end
 
@@ -31,8 +31,8 @@ describe DecodeAuthenticationCommand do
 
     let(:expired_header) do
       {
-        'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcmF0aW9uIjoxNDgzMzE1MjAxfQ' \
-                           '.bMict_biZTOT545LKhD_RqnpY9GPmHiagtrR9sFSBPo'
+        'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0ODMzMTUyMDF9.' \
+                           '4Ix2FfiY0_Jsjk13mHntg62aVX9BmMgFEembjN2E-Zw'
       }
     end
 
@@ -50,8 +50,8 @@ describe DecodeAuthenticationCommand do
 
     let(:expired_header) do
       {
-        'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcmF0aW9uIjoxNDgzMzE1MjAxfQ' \
-                           '.bMict_biZTOT545LKhD_RqnpY9GPmHiagtrR9sFSBPo'
+        'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0ODMzMTUyMDF9.' \
+                           '4Ix2FfiY0_Jsjk13mHntg62aVX9BmMgFEembjN2E-Zw'
       }
     end
 
