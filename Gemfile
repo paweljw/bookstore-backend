@@ -22,7 +22,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'timecop'
 end
 
 group :test do

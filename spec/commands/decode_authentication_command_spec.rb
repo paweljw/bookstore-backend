@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 describe DecodeAuthenticationCommand do
+  include ActiveSupport::Testing::TimeHelpers
+
   context 'without token' do
     subject { described_class.call('') }
 
@@ -26,8 +28,8 @@ describe DecodeAuthenticationCommand do
   end
 
   context 'with invalid token' do
-    before { Timecop.freeze(2017, 1, 1) }
-    after { Timecop.return }
+    before { travel_to Time.zone.local(2017, 1, 1) }
+    after { travel_back }
 
     let(:expired_header) do
       {
@@ -44,8 +46,8 @@ describe DecodeAuthenticationCommand do
   end
 
   context 'with valid token' do
-    before { Timecop.freeze(2017, 1, 1) }
-    after { Timecop.return }
+    before { travel_to Time.zone.local(2017, 1, 1) }
+    after { travel_back }
     let!(:user) { create(:user, id: 1) }
 
     let(:expired_header) do
