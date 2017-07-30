@@ -3,11 +3,13 @@
 require 'rails_helper'
 
 describe AuthenticateUserCommand do
+  include ActiveSupport::Testing::TimeHelpers
+
   let!(:user) { create(:user, id: 1) }
 
   context 'with right user and password' do
-    before { Timecop.freeze(2017, 1, 1, 0, 0, 1, 1) }
-    after { Timecop.return }
+    before { travel_to Time.zone.local(2017, 1, 1, 0, 0, 1, 1) }
+    after { travel_back }
 
     let(:expected_token) do
       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0ODMzMTUyMDF9.' \
