@@ -3,7 +3,7 @@
 module Api
   module V1
     class BooksController < ApplicationController
-      before_action :set_author, only: %i[show update destroy]
+      before_action :set_author, only: %i[index show update destroy]
       before_action :set_book, only: %i[show update destroy]
 
       def index
