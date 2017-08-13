@@ -25,11 +25,11 @@ class BaseCommand
 
   # :nocov:
   def initialize(*_)
-    not_implemented
+    raise NotImplementedError, 'Implement `initialize` for classes inheriting from BaseCommand'
   end
 
   def payload
-    not_implemented
+    raise NotImplementedError, 'Implement `payload` for classes inheriting from BaseCommand'
   end
   # :nocov:
 end
