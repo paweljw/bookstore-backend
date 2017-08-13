@@ -25,7 +25,7 @@ namespace :import do
 
   def create_book(author, title)
     book = author.books.find_or_create_by(title: title)
-    book.price ||= rand * 15
+    book.price = rand * 15
     book.save
     book
   end
