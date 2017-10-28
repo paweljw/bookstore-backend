@@ -5,15 +5,16 @@ require 'rails_helper'
 describe AuthenticateUserCommand do
   include ActiveSupport::Testing::TimeHelpers
 
-  let!(:user) { create(:user, id: 1) }
+  let!(:user) { create(:user, id: 1, email: 'static@rails.local') }
 
   context 'with right user and password' do
     before { travel_to Time.zone.local(2017, 1, 1, 0, 0, 1, 1) }
     after { travel_back }
 
     let(:expected_token) do
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0ODMzMTUyMDF9.' \
-      '4Ix2FfiY0_Jsjk13mHntg62aVX9BmMgFEembjN2E-Zw'
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6I' \
+        'nN0YXRpY0ByYWlscy5sb2NhbCIsImFkbWluIjpmYWxzZSwiZXhwIjoxNDgzMzE1M' \
+        'jAxfQ.cWBf9KEAfDS04d1JnyfQkkHBoIF-07ySj35HPb6yf30'
     end
 
     subject { described_class.call(user.email, 'password123') }
