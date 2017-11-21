@@ -6,9 +6,9 @@ default: &default
 development: &development
   <<: *default
   database: bookstore-backend_development
-  username: postgres
-  password: our-awesome-bookstore-app
-  host: localhost
+  # username: postgres
+  # password: our-awesome-bookstore-app
+  # host: localhost
 
 test:
   <<: *development
