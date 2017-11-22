@@ -1,23 +1,24 @@
 source 'https://rubygems.org'
 
+ruby '2.4.2'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bcrypt'
+gem 'jwt', '1.5.6'
 gem 'money-rails'
-
-gem 'rails', '~> 5.1.2'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.7'
-gem 'rack-cors'
 gem 'nokogiri', require: false
-gem 'bcrypt', '~> 3.1.11'
-gem 'jwt'
+gem 'pg'
+gem 'puma'
+gem 'rack-cors'
+gem 'rails'
 
 group :development, :test do
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-rails'
   gem 'rspec-rails'

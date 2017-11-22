@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'factory_girl'
+require 'factory_bot'
 require 'simplecov'
 
 SimpleCov.start
@@ -16,5 +16,5 @@ RSpec.configure do |config|
   config.default_formatter = 'doc' if config.files_to_run.one?
   config.order = :random
   Kernel.srand config.seed
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 end
