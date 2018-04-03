@@ -15,6 +15,7 @@ gem 'pg'
 gem 'puma'
 gem 'rack-cors'
 gem 'rails'
+gem 'rake'
 
 group :development, :test do
   gem 'database_cleaner'

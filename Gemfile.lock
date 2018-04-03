@@ -184,6 +184,7 @@ DEPENDENCIES
   puma
   rack-cors
   rails
+  rake
   rspec-rails
   shoulda-matchers
   simplecov
