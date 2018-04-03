@@ -3,8 +3,11 @@ services:
   - postgresql
 env:
   - "RAILS_ENV=test"
+before_install:
+  - gem update --system --no-document
+  - gem install bundler -v 1.16.1 --no-document
 before_script:
-  - RAILS_ENV=test bundle exec rake db:create db:migrate
+  - RAILS_ENV=test bin/rake db:create db:migrate
 addons:
   postgresql: "9.6"
   code_climate:
