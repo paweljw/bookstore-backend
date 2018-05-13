@@ -14,7 +14,7 @@ gem 'nokogiri', require: false
 gem 'pg'
 gem 'puma'
 gem 'rack-cors'
-gem 'rails'
+gem 'rails', '~> 5.1.0'
 gem 'rake'
 
 group :development, :test do
